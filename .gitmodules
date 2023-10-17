@@ -1,0 +1,8 @@
+[submodule "Assets/Source/Core/Base"]
+	path = Assets/Source/Core/Base
+	url = https://github.com/ZopMaxima/Core-Base.git
+	branch = main
+[submodule "Assets/Source/Core/Unity"]
+	path = Assets/Source/Core/Unity
+	url = https://github.com/ZopMaxima/Core-Unity.git
+	branch = main
