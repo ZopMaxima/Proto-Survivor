@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3054230525138746890}
   - component: {fileID: 3054230525138746901}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Sprite (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3054230526404510730}
   - component: {fileID: 3054230526404510741}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,8 @@ GameObject:
   - component: {fileID: 3054230526729637380}
   - component: {fileID: 3054230526729637381}
   - component: {fileID: 3054230526729637383}
-  m_Layer: 7
+  - component: {fileID: -8987419870762629203}
+  m_Layer: 9
   m_Name: Enemy_Melee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +302,7 @@ MonoBehaviour:
   Damage: 2
   TargetLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 256
   DamageWhileOverlapped: 1
   DestroyOnHit: 0
 --- !u!114 &3054230526729637383
@@ -316,4 +317,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ca9843f011b7341a5158f373c314f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Effect: {fileID: 0}
+  Effect: {fileID: 4480204300821106388, guid: 8c46482c51cbdec418567300aaf08d07, type: 3}
+--- !u!114 &-8987419870762629203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3054230526729637439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 608840613dc7e304da7ddf218ed5240b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Loot: {fileID: 4480204300821106388, guid: 3e013747d872ffd4d8531f36c82cfda3, type: 3}

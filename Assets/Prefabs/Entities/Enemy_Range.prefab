@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 569772093235813322}
   - component: {fileID: 569772093235813329}
   - component: {fileID: 569772093235813331}
-  m_Layer: 7
+  - component: {fileID: -7612918816324384389}
+  m_Layer: 9
   m_Name: Enemy_Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +132,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ca9843f011b7341a5158f373c314f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Effect: {fileID: 0}
+  Effect: {fileID: 4480204300821106388, guid: 8c46482c51cbdec418567300aaf08d07, type: 3}
+--- !u!114 &-7612918816324384389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569772093235813323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 608840613dc7e304da7ddf218ed5240b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Loot: {fileID: 4480204300821106388, guid: c3c6121cb04f4374bb72109bbf1d71dd, type: 3}
 --- !u!1 &569772093968573204
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 569772093968573207}
   - component: {fileID: 569772093968573206}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Weapon_Bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +194,7 @@ MonoBehaviour:
   Velocity: 2.5
   TargetLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 256
   TargetRange: 15
   Cooldown: 2.5
 --- !u!1 &569772094124824112
@@ -193,7 +207,7 @@ GameObject:
   m_Component:
   - component: {fileID: 569772094124824115}
   - component: {fileID: 569772094124824114}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Sprite (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 569772094363156085}
   - component: {fileID: 569772094363156084}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
