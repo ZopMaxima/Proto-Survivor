@@ -8,11 +8,19 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Terrain
   - Water
   - UI
+  - UI Static
+  - 
   - Player
   - Monster
+  - Creature
+  - Structure
+  - Item
+  - 
+  - 
+  - 
   - Attack_Player
   - Attack_Monster
   - 
@@ -27,17 +35,30 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Foreground
+  - Background
   m_SortingLayers:
+  - name: Background
+    uniqueID: 3067041229
+    locked: 0
+  - name: Terrain
+    uniqueID: 3717414771
+    locked: 0
+  - name: Items
+    uniqueID: 767921003
+    locked: 0
+  - name: Default Lower
+    uniqueID: 2575490675
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Default Upper
+    uniqueID: 2114885305
+    locked: 0
+  - name: Effects
+    uniqueID: 81408797
+    locked: 0
+  - name: Foreground
+    uniqueID: 1360119665
     locked: 0
