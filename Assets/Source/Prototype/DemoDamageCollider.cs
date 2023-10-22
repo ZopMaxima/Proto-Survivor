@@ -17,6 +17,7 @@ namespace Zop.Demo
 		public LayerMask TargetLayer;
 		public bool DamageWhileOverlapped = true;
 		public bool DestroyOnHit = false;
+		public GameObject DamageEffect;
 
 		/// <summary>
 		/// Damage the colliding object.
@@ -77,6 +78,10 @@ namespace Zop.Demo
 			if (DestroyOnHit)
 			{
 				GameObject.Destroy(gameObject);
+			}
+			if (DamageEffect != null)
+			{
+				GameObject.Instantiate(DamageEffect, transform.position, transform.rotation * Quaternion.Euler(0.0f, 0.0f, 180.0f));
 			}
 		}
 

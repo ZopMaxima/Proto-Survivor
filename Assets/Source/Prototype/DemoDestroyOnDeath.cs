@@ -14,6 +14,7 @@ namespace Zop.Demo
 	public class DemoDestroyOnDeath : MonoBehaviour
 	{
 		public GameObject Effect;
+		public bool CopyRotation;
 
 		/// <summary>
 		/// Initialzie.
@@ -34,7 +35,7 @@ namespace Zop.Demo
 		{
 			if (Effect != null)
 			{
-				GameObject.Instantiate(Effect, transform.position, transform.rotation);
+				GameObject.Instantiate(Effect, transform.position, CopyRotation ? transform.rotation : Quaternion.identity);
 			}
 			GameObject.Destroy(gameObject);
 		}

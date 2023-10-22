@@ -1,9 +1,10 @@
-// DemoWeaponProjectile.cs
+// DemoWeaponMelee.cs
 // 
 // Author: Max Jackman
 // Email:  max.jackman@outlook.com
-// Date:   October 11, 2023
+// Date:   October 20, 2023
 
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Zop.Demo
@@ -11,23 +12,23 @@ namespace Zop.Demo
 	/// <summary>
 	/// A weapon that fires at a fixed rate.
 	/// </summary>
-	public class DemoWeaponProjectile : MonoBehaviour
+	public class DemoWeaponMelee : MonoBehaviour
 	{
-		public GameObject Projectile;
-		public float Velocity = 10.0f;
+		public GameObject Effect;
 		public LayerMask TargetLayer;
-		public float TargetRange = 20.0f;
+		public float TargetRange = 3.0f;
 		public float Cooldown = 1.0f;
 
 		private Transform _transform;
 		private float _timer;
+		private readonly List<GameObject> _instances = new List<GameObject>();
 
 		private static readonly Collider2D[] _hitBuffer = new Collider2D[256];
 
 		/// <summary>
 		/// Cache components.
 		/// </summary>
-		public void Awake()
+		public void Start()
 		{
 			_transform = transform;
 		}
@@ -37,6 +38,19 @@ namespace Zop.Demo
 		/// </summary>
 		public void FixedUpdate()
 		{
+			// Follow this transform with each instance.
+			for (int i = _instances.Count - 1; i >= 0; i--)
+			{
+				if (_instances[i] == null)
+				{
+					_instances.RemoveAt(i);
+				}
+				else
+				{
+					_instances[i].transform.position = _transform.position;
+				}
+			}
+
 			// Countdown
 			if (_timer > 0)
 			{
@@ -65,19 +79,15 @@ namespace Zop.Demo
 			}
 
 			// Fire
-			if (target != null && Projectile != null)
+			if (target != null && Effect != null)
 			{
 				Vector2 direction = target.transform.position - _transform.position;
-				GameObject instance = GameObject.Instantiate(Projectile, transform.position, Quaternion.LookRotation(Vector3.forward, direction));
+				GameObject instance = GameObject.Instantiate(Effect, transform.position, Quaternion.LookRotation(Vector3.forward, direction));
 				if (!instance.activeSelf)
 				{
 					instance.SetActive(true);
 				}
-				Rigidbody2D r = instance.GetComponentInChildren<Rigidbody2D>();
-				if (r != null)
-				{
-					r.AddForce(direction * Velocity * r.mass, ForceMode2D.Impulse);
-				}
+				_instances.Add(instance);
 
 				// Keep overflowed cooldown progress.
 				_timer += Cooldown;
