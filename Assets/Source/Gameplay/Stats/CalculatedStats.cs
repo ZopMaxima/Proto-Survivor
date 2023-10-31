@@ -87,14 +87,14 @@ namespace Zop
 			// Clamp
 			value *= multiplier;
 			float min = ValueMin;
-			float max = ValueMin;
+			float max = ValueMax;
 			if (min > UnassignedMin)
 			{
-				value = Mathf.Max(Value, min);
+				value = Mathf.Max(value, min);
 			}
 			if (max < UnassignedMax)
 			{
-				value = Mathf.Min(Value, max);
+				value = Mathf.Min(value, max);
 			}
 
 			// Return
@@ -179,14 +179,14 @@ namespace Zop
 			// Clamp
 			value *= multiplier;
 			int min = ValueMin;
-			int max = ValueMin;
+			int max = ValueMax;
 			if (min > UnassignedMin)
 			{
-				value = Mathf.Max(Value, min);
+				value = Mathf.Max(value, min);
 			}
 			if (max < UnassignedMax)
 			{
-				value = Mathf.Min(Value, max);
+				value = Mathf.Min(value, max);
 			}
 
 			// Return

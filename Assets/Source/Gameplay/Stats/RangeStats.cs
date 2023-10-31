@@ -43,7 +43,7 @@ namespace Zop
 		protected override float Clamp(float value)
 		{
 			float min = ValueMin;
-			float max = ValueMin;
+			float max = ValueMax;
 			if (min > UnassignedMin)
 			{
 				value = Mathf.Max(value, min);
@@ -90,7 +90,7 @@ namespace Zop
 		protected override int Clamp(int value)
 		{
 			int min = ValueMin;
-			int max = ValueMin;
+			int max = ValueMax;
 			if (min > UnassignedMin)
 			{
 				value = Mathf.Max(value, min);
