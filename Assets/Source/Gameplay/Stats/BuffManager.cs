@@ -73,10 +73,10 @@ namespace Zop
 			}
 
 			// Get stats.
-			EntityStats stats = entity.GetComponentInChildren<EntityStats>();
+			IStatCollection<float> stats = entity.GetComponentInChildren<IStatCollection<float>>();
 			if (stats == null)
 			{
-				Debug.LogError($"Entity {entity.name} does not have {typeof(EntityStats).Name} to apply a buff to.");
+				Debug.LogError($"Entity {entity.name} does not have {typeof(IStatCollection<float>).Name} to apply a buff to.");
 				return;
 			}
 			CalculatedStat<float> stat = stats.GetStat(buff.StatID) as CalculatedStat<float>;

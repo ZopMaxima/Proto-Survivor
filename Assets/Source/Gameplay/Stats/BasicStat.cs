@@ -13,11 +13,12 @@ namespace Zop
 	/// </summary>
 	public abstract class BasicStat<T> : Stat<T>
 	{
-		public override T Value { get { return _value; } set { _value = Clamp(value); } }
-		public override T ValueMin { get { return _valueMin; } set { _valueMin = value; _value = Clamp(_value); } }
-		public override T ValueMax { get { return _valueMax; } set { _valueMax = value; _value = Clamp(_value); } }
+		public override T ValueBase { get { return _valueBase; } set { _valueBase = Clamp(value); } }
+		public override T ValueMin { get { return _valueMin; } set { _valueMin = value; _valueBase = Clamp(_valueBase); } }
+		public override T ValueMax { get { return _valueMax; } set { _valueMax = value; _valueBase = Clamp(_valueBase); } }
+		public override T Value { get { return _valueBase; } }
 
-		protected T _value;
+		protected T _valueBase;
 		protected T _valueMin;
 		protected T _valueMax;
 
@@ -31,7 +32,7 @@ namespace Zop
 		/// </summary>
 		public BasicStat(Enum id, T value) : this(id)
 		{
-			_value = value;
+			_valueBase = value;
 		}
 
 		/// <summary>

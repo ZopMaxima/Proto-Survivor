@@ -5,7 +5,6 @@
 // Date:   October 24, 2023
 
 using System;
-using Unity.Mathematics;
 
 namespace Zop
 {
@@ -17,9 +16,10 @@ namespace Zop
 		public Enum ID { get; }
 		public string Title { get; }
 
-		public T Value { get; set; }
+		public T ValueBase { get; set; }
 		public T ValueMin { get; set; }
 		public T ValueMax { get; set; }
+		public T Value { get; }
 
 		public T UnassignedMin { get; }
 		public T UnassignedMax { get; }
@@ -41,7 +41,7 @@ namespace Zop
 		/// <summary>
 		/// Returns the minimum stat value.
 		/// </summary>
-		public static T GetMinValue<T>(this IStat<T> stat)
+		public static T GetValueMin<T>(this IStat<T> stat)
 		{
 			return stat.ValueMin;
 		}
@@ -49,7 +49,7 @@ namespace Zop
 		/// <summary>
 		/// Returns the maximum stat value.
 		/// </summary>
-		public static T GetMaxValue<T>(this IStat<T> stat)
+		public static T GetValueMax<T>(this IStat<T> stat)
 		{
 			return stat.ValueMax;
 		}

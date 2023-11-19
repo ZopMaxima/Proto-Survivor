@@ -14,9 +14,10 @@ namespace Zop
 	/// </summary>
 	public abstract class CalculatedStat<T> : Stat<T>
 	{
-		public override T Value { get { return Evaluate(); } set { /* DO NOTHING */ } }
+		public override T ValueBase { get { return default; } set { /* DO NOTHING */ } }
 		public override T ValueMin { get { return _valueMinGet != null ? _valueMinGet.Try() : UnassignedMin; } set { _valueMinSet.Try(value); } }
 		public override T ValueMax { get { return _valueMaxGet != null ? _valueMaxGet.Try() : UnassignedMax; } set { _valueMaxSet.Try(value); } }
+		public override T Value { get { return Evaluate(); } }
 
 		public Func<T> MinGetter { get { return _valueMinGet; } set { _valueMinGet = value; } }
 		public Func<T> MaxGetter { get { return _valueMaxGet; } set { _valueMaxGet = value; } }
