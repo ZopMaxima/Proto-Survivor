@@ -18,16 +18,6 @@ namespace Zop
 
 		public IStatCollection<float> Stats { get; }
 
-		public float AttackTime { get; }
-		public bool CanAttack { get; }
-
-		public float BaseAttackFrequency { get; }
-		public float BaseDamageMin { get; }
-		public float BaseDamageMax { get; }
-		public float BaseCritPower { get; }
-		public float BaseCritMultiplier { get; }
-		public float BaseDPS { get; }
-
 		public float AttackFrequency { get; }
 		public float DamageMin { get; }
 		public float DamageMax { get; }
@@ -36,13 +26,8 @@ namespace Zop
 		public float DPS { get; }
 
 		/// <summary>
-		/// Returns a damage roll.
+		/// Returns a damage-rolled attack.
 		/// </summary>
-		public float RollDamage();
-
-		/// <summary>
-		/// Set this weapon on cooldown.
-		/// </summary>
-		public void StartCooldown();
+		public IAttack Attack();
 	}
 }
