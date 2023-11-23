@@ -12,32 +12,50 @@ namespace Zop
 	/// <summary>
 	/// A weapon assembled by an entity.
 	/// </summary>
-	public class EntityWeapon : MonoBehaviour
+	public class EntityWeapon : MonoBehaviour, IWeapon
 	{
-		private float _baseFrequency = 1.0f; // TODO: Scriptable Object
-		private float _baseDamageMin = 1.0f; // TODO: Scriptable Object
-		private float _baseDamageMax = 1.0f; // TODO: Scriptable Object
-		private float _baseCritPower = 0.0f; // TODO: Scriptable Object
-		private float _baseCritMultiplier = 2.0f; // TODO: Scriptable Object
+		[SerializeField] private float _baseFrequency = 1.0f; // TODO: Scriptable Object
+		[SerializeField] private float _baseDamageMin = 1.0f; // TODO: Scriptable Object
+		[SerializeField] private float _baseDamageMax = 1.0f; // TODO: Scriptable Object
+		[SerializeField] private float _baseCritPower = 0.0f; // TODO: Scriptable Object
+		[SerializeField] private float _baseCritMultiplier = 2.0f; // TODO: Scriptable Object
 
-		public IWeapon Weapon { get { return _weapon; } }
-		public IStatCollection<float> Stats { get { return _stats; } }
+		public IWeapon InternalWeapon { get { return _weapon; } }
+
+		public Enum ID => _weapon.ID;
+		public string Title => _weapon.Title;
+
+		public IStatCollection<float> Stats => _weapon.Stats;
+
+		public float AttackFrequency => _weapon.AttackFrequency;
+		public float DamageMin => _weapon.DamageMin;
+		public float DamageMax => _weapon.DamageMax;
+		public float CritPower => _weapon.CritPower;
+		public float CritMultiplier => _weapon.CritMultiplier;
+		public float DPS => _weapon.DPS;
 
 		private IWeapon _weapon;
-		private IStatCollection<float> _stats;
 
 		/// <summary>
 		/// Initialize.
 		/// </summary>
 		protected virtual void Awake()
 		{
-			_stats = new StatCollection<float>();
-			_stats.AddStat(new CalculatedStatF(WeaponStat.Frequency, new Func<float>[] { () => _baseFrequency }));
-			_stats.AddStat(new CalculatedStatF(WeaponStat.MinDamage, new Func<float>[] { () => _baseDamageMin }));
-			_stats.AddStat(new CalculatedStatF(WeaponStat.MaxDamage, new Func<float>[] { () => _baseDamageMax }));
-			_stats.AddStat(new CalculatedStatF(WeaponStat.CritPower, new Func<float>[] { () => _baseCritPower }));
-			_stats.AddStat(new CalculatedStatF(WeaponStat.CritMultiplier, new Func<float>[] { () => _baseCritMultiplier }));
-			_weapon = new Weapon(WeaponType.Prototype, _stats);
+			IStatCollection<float> stats = new StatCollection<float>();
+			stats.AddStat(new CalculatedStatF(WeaponStat.Frequency, new Func<float>[] { () => _baseFrequency }));
+			stats.AddStat(new CalculatedStatF(WeaponStat.MinDamage, new Func<float>[] { () => _baseDamageMin }));
+			stats.AddStat(new CalculatedStatF(WeaponStat.MaxDamage, new Func<float>[] { () => _baseDamageMax }));
+			stats.AddStat(new CalculatedStatF(WeaponStat.CritPower, new Func<float>[] { () => _baseCritPower }));
+			stats.AddStat(new CalculatedStatF(WeaponStat.CritMultiplier, new Func<float>[] { () => _baseCritMultiplier }));
+			_weapon = new Weapon(WeaponType.Prototype, stats);
+		}
+
+		/// <summary>
+		/// Returns a damage-rolled attack.
+		/// </summary>
+		public IAttack Attack()
+		{
+			return _weapon.Attack();
 		}
 	}
 }

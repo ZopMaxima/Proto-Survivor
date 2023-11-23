@@ -5,7 +5,6 @@
 // Date:   November 17, 2023
 
 using System;
-using UnityEngine;
 
 namespace Zop
 {
@@ -18,35 +17,6 @@ namespace Zop
 		public string Title { get { return _title; } }
 
 		public IStatCollection<float> Stats { get { return _stats; } set { _stats = value; } }
-
-		public float AttackTime { get { return _attackTime; } }
-		public bool CanAttack { get { return Time.time >= _attackTime; } }
-
-		public virtual float BaseAttackFrequency { get { return _stats.GetStatValueBase(WeaponStat.Frequency); } }
-		public virtual float BaseDamageMin { get { return _stats.GetStatValueBase(WeaponStat.MinDamage); } }
-		public virtual float BaseDamageMax { get { return _stats.GetStatValueBase(WeaponStat.MaxDamage); } }
-		public virtual float BaseCritPower { get { return _stats.GetStatValueBase(WeaponStat.CritPower); } }
-		public virtual float BaseCritMultiplier { get { return _stats.GetStatValueBase(WeaponStat.CritMultiplier); } }
-		public virtual float BaseDPS
-		{
-			get
-			{
-				float min = BaseDamageMin;
-				float max = BaseDamageMax;
-				float critP = BaseCritPower;
-				float critM = BaseCritMultiplier;
-				if (critP >= 0)
-				{
-					float crit = critP / (critP + 1.0f);
-					return BaseAttackFrequency * ((min + ((max - min) * 0.5f)) * ((1.0f - crit) + (crit * critM)));
-				}
-				else
-				{
-					float crit = critP / (critP - 1.0f);
-					return BaseAttackFrequency * ((min + ((max - min) * 0.5f)) * ((1.0f - crit) + (crit / critM)));
-				}
-			}
-		}
 
 		public virtual float AttackFrequency { get { return _stats.GetStatValue(WeaponStat.Frequency); } }
 		public virtual float DamageMin { get { return _stats.GetStatValue(WeaponStat.MinDamage); } }
@@ -78,8 +48,6 @@ namespace Zop
 		private string _title;
 		private IStatCollection<float> _stats;
 
-		private float _attackTime;
-
 		/// <summary>
 		/// Construct with a permanent ID.
 		/// </summary>
@@ -98,9 +66,9 @@ namespace Zop
 		}
 
 		/// <summary>
-		/// Returns a damage roll.
+		/// Returns a damage-rolled attack.
 		/// </summary>
-		public float RollDamage()
+		public IAttack Attack()
 		{
 			float min = DamageMin;
 			float max = DamageMax;
@@ -126,15 +94,7 @@ namespace Zop
 			}
 
 			// Return
-			return hit;
-		}
-
-		/// <summary>
-		/// Set this weapon on cooldown.
-		/// </summary>
-		public void StartCooldown()
-		{
-			_attackTime = Time.time;
+			return new Attack(this, hit);
 		}
 	}
 }
