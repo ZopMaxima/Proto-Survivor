@@ -16,10 +16,9 @@ namespace Zop
 		public Enum ID { get; }
 		public string Title { get; }
 
-		public T ValueBase { get; set; }
+		public T Value { get; set; }
 		public T ValueMin { get; set; }
 		public T ValueMax { get; set; }
-		public T Value { get; }
 
 		public T UnassignedMin { get; }
 		public T UnassignedMax { get; }
@@ -75,18 +74,18 @@ namespace Zop
 		/// <summary>
 		/// Returns the 0-1 percentage of this stat if the minimum and maximum are defined.
 		/// </summary>
-		public static double GetPercent(this IStat<double> stat)
+		public static float GetPercent(this IStat<double> stat)
 		{
 			double min = stat.ValueMin;
 			double max = stat.ValueMax;
 			if (max > min && min > stat.UnassignedMin && max < stat.UnassignedMax)
 			{
 				double range = max - min;
-				return (stat.Value - min) / range;
+				return (float)((stat.Value - min) / range);
 			}
 			else
 			{
-				return 1.0d;
+				return 1.0f;
 			}
 		}
 

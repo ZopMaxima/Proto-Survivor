@@ -12,9 +12,22 @@ namespace Zop
 	public enum EntityStats
 	{
 		None = 0,
-		HP,
-		Strength,
+
+		// Scaling
+		Level = 1,
+		XP,
+		XPMax,
+		Rarity,
+
+		// Resources
+		HP = 1000,
+		HPMax,
+		MP,
+		MPMax,
+
+		// Attributes
+		Strength = 2000,
 		Dexterity,
-		Damage,
+		Intellect,
 	}
 }

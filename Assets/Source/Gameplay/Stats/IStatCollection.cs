@@ -42,7 +42,7 @@ namespace Zop
 		/// <summary>
 		/// Returns the requested stat value, else default.
 		/// </summary>
-		public static T GetStatValueBase<T>(this IStatCollection<T> self, Enum stat)
+		public static T GetStatValue<T>(this IStatCollection<T> self, Enum stat)
 		{
 			IStat<T> s;
 			if (self == null || (s = self.GetStat(stat)) == null)
@@ -51,7 +51,7 @@ namespace Zop
 			}
 			else
 			{
-				return s.ValueBase;
+				return s.Value;
 			}
 		}
 
@@ -88,18 +88,102 @@ namespace Zop
 		}
 
 		/// <summary>
-		/// Returns the requested stat value, else default.
+		/// Set the requested stat value.
 		/// </summary>
-		public static T GetStatValue<T>(this IStatCollection<T> self, Enum stat)
+		public static void SetStatValue<T>(this IStatCollection<T> self, Enum stat, T value)
 		{
 			IStat<T> s;
+			if (self != null && (s = self.GetStat(stat)) != null)
+			{
+				s.Value = value;
+			}
+		}
+
+		/// <summary>
+		/// Set the requested stat value.
+		/// </summary>
+		public static void SetStatValueMin<T>(this IStatCollection<T> self, Enum stat, T value)
+		{
+			IStat<T> s;
+			if (self != null && (s = self.GetStat(stat)) != null)
+			{
+				s.ValueMin = value;
+			}
+		}
+
+		/// <summary>
+		/// Set the requested stat value.
+		/// </summary>
+		public static void SetStatValueMax<T>(this IStatCollection<T> self, Enum stat, T value)
+		{
+			IStat<T> s;
+			if (self != null && (s = self.GetStat(stat)) != null)
+			{
+				s.ValueMax = value;
+			}
+		}
+
+		/// <summary>
+		/// Returns the requested stat value, else default.
+		/// </summary>
+		public static float GetStatPercent(this IStatCollection<float> self, Enum stat)
+		{
+			IStat<float> s;
 			if (self == null || (s = self.GetStat(stat)) == null)
 			{
 				return default;
 			}
 			else
 			{
-				return s.Value;
+				return s.GetPercent();
+			}
+		}
+
+		/// <summary>
+		/// Returns the requested stat value, else default.
+		/// </summary>
+		public static float GetStatPercent(this IStatCollection<double> self, Enum stat)
+		{
+			IStat<double> s;
+			if (self == null || (s = self.GetStat(stat)) == null)
+			{
+				return default;
+			}
+			else
+			{
+				return s.GetPercent();
+			}
+		}
+
+		/// <summary>
+		/// Returns the requested stat value, else default.
+		/// </summary>
+		public static float GetStatPercent(this IStatCollection<int> self, Enum stat)
+		{
+			IStat<int> s;
+			if (self == null || (s = self.GetStat(stat)) == null)
+			{
+				return default;
+			}
+			else
+			{
+				return s.GetPercent();
+			}
+		}
+
+		/// <summary>
+		/// Returns the requested stat value, else default.
+		/// </summary>
+		public static float GetStatPercent(this IStatCollection<long> self, Enum stat)
+		{
+			IStat<long> s;
+			if (self == null || (s = self.GetStat(stat)) == null)
+			{
+				return default;
+			}
+			else
+			{
+				return s.GetPercent();
 			}
 		}
 	}

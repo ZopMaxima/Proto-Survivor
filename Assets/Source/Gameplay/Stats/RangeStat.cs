@@ -13,17 +13,16 @@ namespace Zop
 	/// </summary>
 	public abstract class RangeStat<T> : Stat<T>
 	{
-		public override T ValueBase { get { return _valueBase; } set { _valueBase = Clamp(value); } }
+		public override T Value { get { return _value; } set { _value = Clamp(value); } }
 		public override T ValueMin { get { return _valueMinGet != null ? _valueMinGet.Try() : UnassignedMin; } set { _valueMinSet.Try(value); } }
 		public override T ValueMax { get { return _valueMaxGet != null ? _valueMaxGet.Try() : UnassignedMax; } set { _valueMaxSet.Try(value); } }
-		public override T Value { get { return _valueBase; } }
 
 		public Func<T> MinGetter { get { return _valueMinGet; } set { _valueMinGet = value; } }
 		public Func<T> MaxGetter { get { return _valueMaxGet; } set { _valueMaxGet = value; } }
 		public Action<T> MinSetter { get { return _valueMinSet; } set { _valueMinSet = value; } }
 		public Action<T> MaxSetter { get { return _valueMaxSet; } set { _valueMaxSet = value; } }
 
-		private T _valueBase;
+		private T _value;
 		private Func<T> _valueMinGet;
 		private Func<T> _valueMaxGet;
 		private Action<T> _valueMinSet;
@@ -39,7 +38,7 @@ namespace Zop
 		/// </summary>
 		public RangeStat(Enum id, T value) : this(id)
 		{
-			_valueBase = value;
+			_value = value;
 		}
 
 		/// <summary>

@@ -16,10 +16,9 @@ namespace Zop
 		public Enum ID { get { return _id; } }
 		public string Title { get { return _title; } }
 
-		public abstract T ValueBase { get; set; }
+		public abstract T Value { get; set; }
 		public abstract T ValueMin { get; set; }
 		public abstract T ValueMax { get; set; }
-		public abstract T Value { get; }
 
 		public abstract T UnassignedMin { get; }
 		public abstract T UnassignedMax { get; }
