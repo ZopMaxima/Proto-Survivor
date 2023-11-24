@@ -38,6 +38,14 @@ namespace Zop
 		}
 
 		/// <summary>
+		/// Set the current stat value.
+		/// </summary>
+		public static void SetValue<T>(this IStat<T> stat, T value)
+		{
+			stat.Value = value;
+		}
+
+		/// <summary>
 		/// Returns the minimum stat value.
 		/// </summary>
 		public static T GetValueMin<T>(this IStat<T> stat)
@@ -46,11 +54,27 @@ namespace Zop
 		}
 
 		/// <summary>
+		/// Set the minimum stat value.
+		/// </summary>
+		public static void SetValueMin<T>(this IStat<T> stat, T value)
+		{
+			stat.ValueMin = value;
+		}
+
+		/// <summary>
 		/// Returns the maximum stat value.
 		/// </summary>
 		public static T GetValueMax<T>(this IStat<T> stat)
 		{
 			return stat.ValueMax;
+		}
+
+		/// <summary>
+		/// Set the maximum stat value.
+		/// </summary>
+		public static void SetValueMax<T>(this IStat<T> stat, T value)
+		{
+			stat.ValueMax = value;
 		}
 
 		/// <summary>
@@ -123,6 +147,22 @@ namespace Zop
 			{
 				return 1.0f;
 			}
+		}
+
+		/// <summary>
+		/// Returns the default stat minimum.
+		/// </summary>
+		public static T GetUnassignedMin<T>(this IStat<T> stat)
+		{
+			return stat.UnassignedMin;
+		}
+
+		/// <summary>
+		/// Returns the default stat maximum.
+		/// </summary>
+		public static T GetUnassignedMax<T>(this IStat<T> stat)
+		{
+			return stat.UnassignedMax;
 		}
 	}
 }
