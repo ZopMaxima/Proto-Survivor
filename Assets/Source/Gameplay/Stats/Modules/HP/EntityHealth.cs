@@ -29,7 +29,7 @@ namespace Zop
 		/// </summary>
 		private void Awake()
 		{
-			_stats = GetComponent<IStatCollection<float>>();
+			this.GetEntityComponents(out _stats);
 			_hasStats = _stats != null;
 		}
 
