@@ -13,18 +13,7 @@ namespace Zop.Demo
 	/// </summary>
 	public class DemoCharacterInputAIArcher : DemoCharacterInputAI
 	{
-		public float PercentWeaponRange = 0.5f;
-
-		private DemoWeaponProjectile _weapon;
-
-		/// <summary>
-		/// Initialize.
-		/// </summary>
-		public override void Awake()
-		{
-			base.Awake();
-			_weapon = GetComponentInChildren<DemoWeaponProjectile>();
-		}
+		public float ApproachRange = 10.0f;
 
 		/// <summary>
 		/// Poll input.
@@ -40,7 +29,7 @@ namespace Zop.Demo
 			// Advance to weapon range.
 			if (_controller != null && _target != null)
 			{
-				float distance = Mathf.Max(0, _weapon.TargetRange * PercentWeaponRange);
+				float distance = Mathf.Max(0, ApproachRange);
 				Vector3 position = _target.position + ((_transform.position - _target.position).normalized * distance);
 				_controller.Input = position - _transform.position;
 			}
