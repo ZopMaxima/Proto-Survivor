@@ -7,7 +7,7 @@
 using System;
 using UnityEngine;
 
-namespace Zop.Demo
+namespace Zop
 {
 	/// <summary>
 	/// An entity component used to search for local targets.
