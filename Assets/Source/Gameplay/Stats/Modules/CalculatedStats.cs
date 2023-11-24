@@ -26,6 +26,11 @@ namespace Zop
 		/// <summary>
 		/// Construct with initial values.
 		/// </summary>
+		public CalculatedStatF(Enum id, float value) : base(id, value) { }
+
+		/// <summary>
+		/// Construct with initial values.
+		/// </summary>
 		public CalculatedStatF(Enum id, params Func<float>[] additiveValues) : base(id, additiveValues) { }
 
 		/// <summary>
@@ -67,7 +72,7 @@ namespace Zop
 		protected override float Evaluate()
 		{
 			// Base
-			float value = 0.0f;
+			float value = _baseValue;
 			for (int i = 0; i < AdditiveValues.Count; i++)
 			{
 				value += AdditiveValues[i].Try();
@@ -118,6 +123,11 @@ namespace Zop
 		/// <summary>
 		/// Construct with initial values.
 		/// </summary>
+		public CalculatedStatI(Enum id, int value) : base(id, value) { }
+
+		/// <summary>
+		/// Construct with initial values.
+		/// </summary>
 		public CalculatedStatI(Enum id, params Func<int>[] additiveValues) : base(id, additiveValues) { }
 
 		/// <summary>
@@ -159,7 +169,7 @@ namespace Zop
 		protected override int Evaluate()
 		{
 			// Base
-			int value = 0;
+			int value = _baseValue;
 			for (int i = 0; i < AdditiveValues.Count; i++)
 			{
 				value += AdditiveValues[i].Try();

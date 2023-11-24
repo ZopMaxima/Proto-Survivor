@@ -14,7 +14,7 @@ namespace Zop
 	/// </summary>
 	public abstract class CalculatedStat<T> : Stat<T>
 	{
-		public override T Value { get { return Evaluate(); } set { /* DO NOTHING */ } }
+		public override T Value { get { return Evaluate(); } set { _baseValue = value; } }
 		public override T ValueMin { get { return _valueMinGet != null ? _valueMinGet.Try() : UnassignedMin; } set { _valueMinSet.Try(value); } }
 		public override T ValueMax { get { return _valueMaxGet != null ? _valueMaxGet.Try() : UnassignedMax; } set { _valueMaxSet.Try(value); } }
 
@@ -27,6 +27,8 @@ namespace Zop
 		public readonly List<Func<T>> AdditiveMultipliers = new List<Func<T>>(4);
 		public readonly List<Func<T>> CompoundMultipliers = new List<Func<T>>(4);
 
+		protected T _baseValue;
+
 		private Func<T> _valueMinGet;
 		private Func<T> _valueMaxGet;
 		private Action<T> _valueMinSet;
@@ -36,6 +38,14 @@ namespace Zop
 		/// Construct with an ID.
 		/// </summary>
 		public CalculatedStat(Enum id) : base(id) { }
+
+		/// <summary>
+		/// Construct with initial values.
+		/// </summary>
+		public CalculatedStat(Enum id, T value) : this(id)
+		{
+			_baseValue = value;
+		}
 
 		/// <summary>
 		/// Construct with initial values.
