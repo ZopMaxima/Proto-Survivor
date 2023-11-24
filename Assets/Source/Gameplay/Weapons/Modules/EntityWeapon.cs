@@ -14,11 +14,7 @@ namespace Zop
 	/// </summary>
 	public class EntityWeapon : MonoBehaviour, IWeapon
 	{
-		[SerializeField] private float _baseFrequency = 1.0f; // TODO: Scriptable Object
-		[SerializeField] private float _baseDamageMin = 1.0f; // TODO: Scriptable Object
-		[SerializeField] private float _baseDamageMax = 1.0f; // TODO: Scriptable Object
-		[SerializeField] private float _baseCritPower = 0.0f; // TODO: Scriptable Object
-		[SerializeField] private float _baseCritMultiplier = 2.0f; // TODO: Scriptable Object
+		public StatBuilder StatBuilder;
 
 		public IWeapon InternalWeapon { get { return _weapon; } }
 
@@ -42,11 +38,7 @@ namespace Zop
 		protected virtual void Awake()
 		{
 			IStatCollection<float> stats = new StatCollection<float>();
-			stats.AddStat(new CalculatedStatF(WeaponStat.Frequency, new Func<float>[] { () => _baseFrequency }));
-			stats.AddStat(new CalculatedStatF(WeaponStat.MinDamage, new Func<float>[] { () => _baseDamageMin }));
-			stats.AddStat(new CalculatedStatF(WeaponStat.MaxDamage, new Func<float>[] { () => _baseDamageMax }));
-			stats.AddStat(new CalculatedStatF(WeaponStat.CritPower, new Func<float>[] { () => _baseCritPower }));
-			stats.AddStat(new CalculatedStatF(WeaponStat.CritMultiplier, new Func<float>[] { () => _baseCritMultiplier }));
+			StatBuilder.AddStats(stats);
 			_weapon = new Weapon(WeaponType.Prototype, stats);
 		}
 

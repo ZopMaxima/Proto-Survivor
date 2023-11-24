@@ -5,7 +5,6 @@
 // Date:   November 19, 2023
 
 using UnityEngine;
-using Zop.Demo;
 
 namespace Zop
 {
@@ -17,6 +16,7 @@ namespace Zop
 		public GameObject Effect;
 		public EntityWeapon Weapon;
 		public TargetFinder Finder;
+		public EntityAttackVelocity2D Velocity2D;
 		public LayerMask TargetLayer;
 		public float TargetRange = 3.0f;
 
@@ -72,6 +72,20 @@ namespace Zop
 				if (!instance.activeSelf)
 				{
 					instance.SetActive(true);
+				}
+
+				// Velocity
+				if (Velocity2D != null)
+				{
+					Vector3 v = Velocity2D.GetVelocity(instance.transform.up);
+					if (v.x != 0 || v.y != 0 || v.z != 0)
+					{
+						Rigidbody2D[] bodies = instance.GetComponentsInChildren<Rigidbody2D>();
+						for (int i = 0; i < bodies.Length; i++)
+						{
+							bodies[i].velocity = v;
+						}
+					}
 				}
 
 				// Start a new cooldown.
