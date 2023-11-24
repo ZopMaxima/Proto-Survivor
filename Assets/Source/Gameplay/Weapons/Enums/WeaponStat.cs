@@ -19,5 +19,6 @@ namespace Zop
 		CritMultiplier,
 		Luck,
 		Combo,
+		Velocity,
 	}
 }
