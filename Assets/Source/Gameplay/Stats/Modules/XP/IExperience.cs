@@ -13,9 +13,9 @@ namespace Zop
 	/// </summary>
 	public interface IExperience
 	{
-		public float Level { get; set; }
-		public float XP { get; set; }
-		public float XPMax { get; set; }
+		public float Level { get; }
+		public float XP { get; }
+		public float XPMax { get; }
 		public float XPPercent { get; }
 
 		/// <summary>

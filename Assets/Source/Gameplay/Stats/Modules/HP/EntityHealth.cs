@@ -14,13 +14,14 @@ namespace Zop
 	/// </summary>
 	public class EntityHealth : MonoBehaviour, IHealth
 	{
-		public float HP { get { return _hasStats ? _stats.GetStatValue(EntityStats.HP) : 0; } set { if (_hasStats) { _stats.SetStatValue(EntityStats.HP, value); } } }
-		public float HPMax { get { return _hasStats ? _stats.GetStatValueMax(EntityStats.HP) : 0; } set { if (_hasStats) { _stats.SetStatValueMax(EntityStats.HP, value); } } }
+		public float HP { get { return _hasStats ? _stats.GetStatValue(EntityStats.HP) : 0; } private set { if (_hasStats) { _stats.SetStatValue(EntityStats.HP, value); } } }
+		public float HPMax { get { return _hasStats ? _stats.GetStatValueMax(EntityStats.HP) : 0; } private set { if (_hasStats) { _stats.SetStatValueMax(EntityStats.HP, value); } } }
 		public float HPPercent { get { return _hasStats ? _stats.GetStatPercent(EntityStats.HP) : 0; } }
 
 		private bool _hasStats;
 		private IStatCollection<float> _stats;
 
+		private bool _isDead;
 		private FullAction<IHealth, IAttack> _onDeath;
 		private FullAction<IHealth, IAttack> _onRevive;
 
@@ -31,6 +32,25 @@ namespace Zop
 		{
 			this.GetEntityComponents(out _stats);
 			_hasStats = _stats != null;
+		}
+
+		/// <summary>
+		/// Apply an attack to this entity.
+		/// </summary>
+		public void ApplyAttack(IAttack attack)
+		{
+			HP -= attack.Damage;
+			float newHP = HP;
+			if (newHP <= 0 && !_isDead)
+			{
+				_isDead = true;
+				_onDeath.Invoke(this, attack);
+			}
+			else if (newHP > 0 && _isDead)
+			{
+				_isDead = false;
+				_onRevive.Invoke(this, attack);
+			}
 		}
 
 		/// <summary>

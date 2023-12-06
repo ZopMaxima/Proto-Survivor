@@ -20,7 +20,7 @@ namespace Zop
 			{
 				return _hasStats ? _stats.GetStatPercent(EntityStats.Level) : 0;
 			}
-			set
+			private set
 			{
 				float current = Level;
 				if (_hasStats && current != value)
@@ -30,8 +30,8 @@ namespace Zop
 				}
 			}
 		}
-		public float XP { get { return _hasStats ? _stats.GetStatValue(EntityStats.XP) : 0; } set { if (_hasStats) { _stats.SetStatValue(EntityStats.XP, value); } } }
-		public float XPMax { get { return _hasStats ? _stats.GetStatValueMax(EntityStats.XP) : 0; } set { if (_hasStats) { _stats.SetStatValueMax(EntityStats.XP, value); } } }
+		public float XP { get { return _hasStats ? _stats.GetStatValue(EntityStats.XP) : 0; } private set { if (_hasStats) { _stats.SetStatValue(EntityStats.XP, value); } } }
+		public float XPMax { get { return _hasStats ? _stats.GetStatValueMax(EntityStats.XP) : 0; } private set { if (_hasStats) { _stats.SetStatValueMax(EntityStats.XP, value); } } }
 		public float XPPercent { get { return _hasStats ? _stats.GetStatPercent(EntityStats.XP) : 0; } }
 
 		private bool _hasStats;

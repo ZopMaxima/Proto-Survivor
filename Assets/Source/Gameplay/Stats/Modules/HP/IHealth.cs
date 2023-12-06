@@ -13,9 +13,14 @@ namespace Zop
 	/// </summary>
 	public interface IHealth
 	{
-		public float HP { get; set; }
-		public float HPMax { get; set; }
+		public float HP { get; }
+		public float HPMax { get; }
 		public float HPPercent { get; }
+
+		/// <summary>
+		/// Apply an attack to this entity.
+		/// </summary>
+		public void ApplyAttack(IAttack attack);
 
 		/// <summary>
 		/// Add a death event listener.
