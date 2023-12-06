@@ -114,7 +114,10 @@ namespace Zop.Demo
 			}
 
 			// Apply
-			_rigidbody.AddForce(inputVelocity * _rigidbody.mass, ForceMode2D.Impulse); // NOTE: Ignore newtons, multiply mass.
+			if (inputVelocity != default)
+			{
+				_rigidbody.AddForce(inputVelocity * _rigidbody.mass, ForceMode2D.Impulse); // NOTE: Ignore newtons, multiply mass.
+			}
 		}
 	}
 }

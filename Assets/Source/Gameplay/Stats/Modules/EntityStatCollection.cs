@@ -14,6 +14,7 @@ namespace Zop
 	/// </summary>
 	public class EntityStatCollection : MonoBehaviour, IStatCollection<float>
 	{
+		[DefaultFieldError]
 		public StatBuilder StatBuilder;
 
 		public IStatCollection<float> InternalStats { get { return _stats; } }

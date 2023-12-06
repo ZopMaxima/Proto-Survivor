@@ -13,8 +13,11 @@ namespace Zop
 	/// </summary>
 	public class ScanAttacker : MonoBehaviour
 	{
+		[DefaultFieldError]
 		public GameObject Effect;
+		[DefaultFieldError]
 		public EntityWeapon Weapon;
+		[DefaultFieldError]
 		public TargetFinder Finder;
 		public EntityAttackVelocity2D Velocity2D;
 		public LayerMask TargetLayer;

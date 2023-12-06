@@ -6,15 +6,16 @@
 
 using UnityEngine;
 
-namespace Zop.Demo
+namespace Zop
 {
 	/// <summary>
 	/// Damage any hit HP classes.
 	/// </summary>
 	public class EntityAttackCollider : MonoBehaviour
 	{
-		public IAttack Attack;
-
+		[DefaultFieldError]
+		public EntityAttack Attack;
+		[DefaultFieldError]
 		public LayerMask TargetLayer;
 		public bool DamageWhileOverlapped = true;
 		public bool DestroyOnHit = false;
@@ -74,7 +75,7 @@ namespace Zop.Demo
 			// Apply
 			if (hp != null)
 			{
-				hp.HP -= Attack.Damage;
+				hp.ApplyAttack(Attack);
 			}
 			if (DestroyOnHit)
 			{
