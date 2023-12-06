@@ -65,7 +65,8 @@ namespace Zop
 				GameObject instance = GameObjectUtil.InstantiateInactive(Effect, _transform.position, Quaternion.LookRotation(Vector3.forward, direction));
 
 				// Pass attack data to the instance.
-				EntityAttack attack = instance.GetComponent<EntityAttack>();
+				EntityAttack attack;
+				instance.GetEntityComponents(out attack);
 				if (attack != null)
 				{
 					attack.InternalAttack = Weapon.Attack();
@@ -80,8 +81,8 @@ namespace Zop
 				// Velocity
 				if (Velocity2D != null)
 				{
-					Vector3 v = Velocity2D.GetVelocity(instance.transform.up);
-					if (v.x != 0 || v.y != 0 || v.z != 0)
+					Vector2 v = Velocity2D.GetVelocity(target);
+					if (v != default)
 					{
 						Rigidbody2D[] bodies = instance.GetComponentsInChildren<Rigidbody2D>();
 						for (int i = 0; i < bodies.Length; i++)
