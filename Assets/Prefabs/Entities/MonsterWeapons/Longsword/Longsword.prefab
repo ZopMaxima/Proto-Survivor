@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &569772093235813323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 569772093235813335}
+  - component: {fileID: 9221262446744423932}
+  - component: {fileID: 371637104213169008}
+  - component: {fileID: 7375001445387162487}
+  - component: {fileID: 6595136957139972461}
+  - component: {fileID: 6600827952196611553}
+  m_Layer: 9
+  m_Name: Longsword
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &569772093235813335
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569772093235813323}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9221262446744423932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569772093235813323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d61a86981804cf4b9d10b725eb7befd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &371637104213169008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569772093235813323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32c3e33e81102b458453f7275946b32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatBuilder: {fileID: 11400000, guid: 3ee201b3dd6f1f4468a5a96a815af707, type: 2}
+--- !u!114 &7375001445387162487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569772093235813323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58d4491945f816f4189365cdd3db4063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6595136957139972461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569772093235813323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d49ab4079d54584c92d2b255787e5fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _baseSpeed: 2.5
+  _inheritVelocity: 1
+  _predictVelocity: 1
+--- !u!114 &6600827952196611553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569772093235813323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2b7b53df4ac41146b683bb7eebaff26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Effect: {fileID: 7484882595027586211, guid: 8e86f4526edbb074daf290ffec5f66b3, type: 3}
+  Weapon: {fileID: 371637104213169008}
+  Finder: {fileID: 7375001445387162487}
+  Velocity2D: {fileID: 6595136957139972461}
+  TargetLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  TargetRange: 2

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa4755af78d29f43b4f7b6a4cc84c57, type: 3}
+  m_Name: '[Stat Builder] Bow'
+  m_EditorClassIdentifier: 
+  StatValues:
+  - Class: 0
+    ID: 1
+    Value: 0.375
+  - Class: 0
+    ID: 2
+    Value: 10
+  - Class: 0
+    ID: 3
+    Value: 20
+  - Class: 0
+    ID: 4
+    Value: 1
+  - Class: 0
+    ID: 5
+    Value: 2
+  - Class: 0
+    ID: 8
+    Value: 12.5

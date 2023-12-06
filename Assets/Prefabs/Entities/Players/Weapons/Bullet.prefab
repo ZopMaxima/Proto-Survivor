@@ -177,12 +177,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7484882595027586208}
+  - component: {fileID: 1315518729471532940}
   - component: {fileID: 7484882595027586209}
   - component: {fileID: 7484882595027586222}
-  - component: {fileID: 7484882595027586223}
-  - component: {fileID: 7484882595027586221}
-  - component: {fileID: 7484882595027586220}
-  - component: {fileID: 7484882595027586218}
+  - component: {fileID: 3905915815996273497}
+  - component: {fileID: -3870448261427833154}
+  - component: {fileID: -6133927261720051077}
+  - component: {fileID: -3103475837361130027}
+  - component: {fileID: -9215935801318257535}
+  - component: {fileID: -7644857053587378273}
   - component: {fileID: 7484882595027586219}
   m_Layer: 16
   m_Name: Bullet
@@ -208,6 +211,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1315518729471532940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7484882595027586211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d61a86981804cf4b9d10b725eb7befd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &7484882595027586209
 Rigidbody2D:
   serializedVersion: 4
@@ -225,10 +240,10 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &7484882595027586222
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -239,13 +254,13 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.25
---- !u!114 &7484882595027586223
+--- !u!114 &3905915815996273497
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -254,11 +269,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7484882595027586211}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8bb953dfe6045e44af13049410ddfc2, type: 3}
+  m_Script: {fileID: 11500000, guid: b3754bb97a2f21e498fca71f4f65bfd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Time: 2
---- !u!114 &7484882595027586221
+  StatBuilder: {fileID: 11400000, guid: 6d626b2d7b4f0324baa202f3b8173ca5, type: 2}
+--- !u!114 &-3870448261427833154
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -267,11 +282,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7484882595027586211}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8af7ddb949f1752468c5e9e29221e860, type: 3}
+  m_Script: {fileID: 11500000, guid: c8a8985f43971f141b2d4888e7711fa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 1
---- !u!114 &7484882595027586220
+--- !u!114 &-6133927261720051077
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -280,17 +294,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7484882595027586211}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbee1c4be87ba984a8ccdbd67f782a6e, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c2a2650e5480234fb4e2bc4ce96eb6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 10
-  TargetLayer:
-    serializedVersion: 2
-    m_Bits: 640
-  DamageWhileOverlapped: 0
-  DestroyOnHit: 1
-  DamageEffect: {fileID: 4480204300821106388, guid: 7cc48b9d11bfbfb4bb448f58db79872d, type: 3}
---- !u!114 &7484882595027586218
+  Time: 2.5
+--- !u!114 &-3103475837361130027
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -299,11 +307,42 @@ MonoBehaviour:
   m_GameObject: {fileID: 7484882595027586211}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8ca9843f011b7341a5158f373c314f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 36ac4eaf40a25ce49bf74564f00fae0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Effect: {fileID: 4480204300821106388, guid: 7cc48b9d11bfbfb4bb448f58db79872d, type: 3}
-  CopyRotation: 1
+  IgnoreRotation: 0
+--- !u!114 &-9215935801318257535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7484882595027586211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6cba1cc06410884aa738def3805156f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-7644857053587378273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7484882595027586211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 119ff3b48667300448f7cdced46d48e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: {fileID: -9215935801318257535}
+  TargetLayer:
+    serializedVersion: 2
+    m_Bits: 3584
+  DamageWhileOverlapped: 0
+  DestroyOnHit: 1
+  DamageEffect: {fileID: 4480204300821106388, guid: 7cc48b9d11bfbfb4bb448f58db79872d, type: 3}
 --- !u!96 &7484882595027586219
 TrailRenderer:
   serializedVersion: 2

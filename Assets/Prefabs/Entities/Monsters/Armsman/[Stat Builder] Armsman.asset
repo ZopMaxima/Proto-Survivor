@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad3363a0d67852f4a8714ff994a30d33, type: 3}
+  m_Name: '[Stat Builder] Armsman'
+  m_EditorClassIdentifier: 
+  StatBuilders:
+  - {fileID: 11400000, guid: 2de6b41efe237d24bb6bd419d9c70de9, type: 2}
+  - {fileID: 11400000, guid: b26c9a270cf3974468b1404bcfea11af, type: 2}
+  - {fileID: 11400000, guid: 996289c7651d607469e2d131b8298cc2, type: 2}
