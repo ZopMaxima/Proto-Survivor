@@ -13,16 +13,17 @@ namespace Zop
 	/// </summary>
 	public class EntityAttack : MonoBehaviour, IAttack
 	{
-		public IAttack InternalAttack { get { return _attack; } set { _attack = value; } }
+		public IAttack InternalAttack { get { return _attack; } set { _attack = value; _hasAttack = _attack != null; } }
 
-		public IWeapon Weapon => _attack.Weapon;
-		public float Damage => _attack.Damage;
+		public IWeapon Weapon { get { return _hasAttack ? _attack.Weapon : default; } }
+		public float Damage { get { return _hasAttack ? _attack.Damage : default; } }
 
-		public ulong SenderID => _attack.SenderID;
-		public ulong[] TargetIDs => _attack.TargetIDs;
-		public Vector3 Origin => _attack.Origin;
-		public Vector3 Destination => _attack.Destination;
+		public ulong SenderID { get { return _hasAttack ? _attack.SenderID : default; } }
+		public ulong[] TargetIDs { get { return _hasAttack ? _attack.TargetIDs : default; } }
+		public Vector3 Origin { get { return _hasAttack ? _attack.Origin : default; } }
+		public Vector3 Destination { get { return _hasAttack ? _attack.Destination : default; } }
 
 		private IAttack _attack;
+		private bool _hasAttack;
 	}
 }
