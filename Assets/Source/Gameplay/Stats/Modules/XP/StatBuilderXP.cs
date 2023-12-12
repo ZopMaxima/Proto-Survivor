@@ -24,9 +24,9 @@ namespace Zop
 		{
 			if (stats != null)
 			{
-				var level = new BasicStatF(EntityStats.Level, 1, 0, LevelMax);
+				var level = new BasicStatF(EntityStats.Level, 1, 1, LevelMax);
 				var xpMax = new BasicStatF(EntityStats.XPMax, XPMax); // TODO: Easier way to set this value as 'CalculatedStat', including indirect set through XP.ValueMax.
-				var xp = new RangeStatF(EntityStats.XP, XPMax, null, xpMax.GetValue, null, xpMax.SetValue);
+				var xp = new RangeStatF(EntityStats.XP, 0, null, xpMax.GetValue, null, xpMax.SetValue);
 				stats.AddStat(level);
 				stats.AddStat(xp);
 				stats.AddStat(xpMax);

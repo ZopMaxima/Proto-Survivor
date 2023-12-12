@@ -19,6 +19,16 @@ namespace Zop
 		public float XPPercent { get; }
 
 		/// <summary>
+		/// Apply a new level to this entity.
+		/// </summary>
+		public void SetLevel(float value);
+
+		/// <summary>
+		/// Apply experience points to this entity.
+		/// </summary>
+		public void AddXP(float value);
+
+		/// <summary>
 		/// Add a Level event listener.
 		/// </summary>
 		public void AddOnLevel(Action<IExperience, int> onLevel);

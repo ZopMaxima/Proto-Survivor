@@ -6,7 +6,7 @@
 
 using UnityEngine;
 
-namespace Zop.Demo
+namespace Zop
 {
 	/// <summary>
 	/// An abstract loot component.

@@ -6,7 +6,7 @@
 
 using UnityEngine;
 
-namespace Zop.Demo
+namespace Zop
 {
 	/// <summary>
 	/// Lootable health points.
@@ -20,10 +20,10 @@ namespace Zop.Demo
 		/// </summary>
 		public override void Loot(GameObject looter)
 		{
-			DemoHP hp = looter.GetComponentInChildren<DemoHP>();
+			looter.GetEntityComponents(out IHealth hp);
 			if (hp != null)
 			{
-				hp.HP += HP;
+				hp.ApplyAttack(new Attack(null, -HP));
 			}
 		}
 	}

@@ -1,4 +1,4 @@
-// DemoLootCollector.cs
+// LootCollector.cs
 // 
 // Author: Max Jackman
 // Email:  max.jackman@outlook.com
@@ -6,7 +6,6 @@
 
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Zop.Demo
@@ -14,7 +13,7 @@ namespace Zop.Demo
 	/// <summary>
 	/// Collect nearby loot.
 	/// </summary>
-	public class DemoLootCollector : MonoBehaviour
+	public class LootCollector : MonoBehaviour
 	{
 		public LayerMask TargetLayer;
 		public float TargetRange = 5.0f;

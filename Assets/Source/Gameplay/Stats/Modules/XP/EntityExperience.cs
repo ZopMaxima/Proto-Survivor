@@ -14,22 +14,7 @@ namespace Zop
 	/// </summary>
 	public class EntityExperience : MonoBehaviour, IExperience
 	{
-		public float Level
-		{
-			get
-			{
-				return _hasStats ? _stats.GetStatPercent(EntityStats.Level) : 0;
-			}
-			private set
-			{
-				float current = Level;
-				if (_hasStats && current != value)
-				{
-					_stats.SetStatValue(EntityStats.Level, value);
-					_onLevel.Invoke(this, (int)(value - current));
-				}
-			}
-		}
+		public float Level { get { return _hasStats ? _stats.GetStatValue(EntityStats.Level) : 0; } private set { if (_hasStats) { _stats.SetStatValue(EntityStats.Level, value); } } }
 		public float XP { get { return _hasStats ? _stats.GetStatValue(EntityStats.XP) : 0; } private set { if (_hasStats) { _stats.SetStatValue(EntityStats.XP, value); } } }
 		public float XPMax { get { return _hasStats ? _stats.GetStatValueMax(EntityStats.XP) : 0; } private set { if (_hasStats) { _stats.SetStatValueMax(EntityStats.XP, value); } } }
 		public float XPPercent { get { return _hasStats ? _stats.GetStatPercent(EntityStats.XP) : 0; } }
@@ -46,6 +31,50 @@ namespace Zop
 		{
 			this.GetEntityComponents(out _stats);
 			_hasStats = _stats != null;
+		}
+
+		/// <summary>
+		/// Apply a new level to this entity.
+		/// </summary>
+		public void SetLevel(float value)
+		{
+			float oldLevel = Level;
+			Level = value;
+			float newLevel = Level;
+			if (oldLevel != newLevel)
+			{
+				_onLevel?.Invoke(this, Mathf.RoundToInt(newLevel - oldLevel));
+			}
+		}
+
+		/// <summary>
+		/// Apply experience points to this entity.
+		/// </summary>
+		public void AddXP(float value)
+		{
+			// Level-up / down.
+			int levels = 0;
+			float finalXP = XP + value;
+			while (finalXP >= XPMax)
+			{
+				levels++;
+				finalXP -= XPMax;
+				XPMax += 5; // TODO: Settings, function, jazz.
+			}
+			while (finalXP < 0)
+			{
+				XPMax -= 5; // TODO: Settings, function, jazz.
+				finalXP += XPMax;
+				levels--;
+			}
+
+			// Apply
+			XP = finalXP;
+			if (levels != 0)
+			{
+				Level += levels;
+				_onLevel?.Invoke(this, levels);
+			}
 		}
 
 		/// <summary>

@@ -6,7 +6,7 @@
 
 using UnityEngine;
 
-namespace Zop.Demo
+namespace Zop
 {
 	/// <summary>
 	/// Lootable experience points.
@@ -20,10 +20,10 @@ namespace Zop.Demo
 		/// </summary>
 		public override void Loot(GameObject looter)
 		{
-			DemoXP xp = looter.GetComponentInChildren<DemoXP>();
+			looter.GetEntityComponents(out IExperience xp);
 			if (xp != null)
 			{
-				xp.XP += XP;
+				xp.AddXP(XP);
 			}
 		}
 	}

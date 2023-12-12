@@ -1,4 +1,4 @@
-// DemoLootOnDeath.cs
+// LootOnDeath.cs
 // 
 // Author: Max Jackman
 // Email:  max.jackman@outlook.com
@@ -6,12 +6,12 @@
 
 using UnityEngine;
 
-namespace Zop.Demo
+namespace Zop
 {
 	/// <summary>
 	/// Drop loot when this entity dies.
 	/// </summary>
-	public class DemoLootOnDeath : MonoBehaviour
+	public class LootOnDeath : MonoBehaviour
 	{
 		public GameObject Loot;
 
@@ -20,17 +20,17 @@ namespace Zop.Demo
 		/// </summary>
 		private void Start()
 		{
-			DemoHP hp = GetComponentInChildren<DemoHP>();
+			this.GetEntityComponents(out IHealth hp);
 			if (hp != null)
 			{
-				hp.OnDeath += OnDeath;
+				hp.AddOnDeath(OnDeath);
 			}
 		}
 
 		/// <summary>
 		/// Spawn loot.
 		/// </summary>
-		public void OnDeath(DemoHP hp)
+		public void OnDeath(IHealth hp, IAttack attack)
 		{
 			if (Loot != null)
 			{

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: '[Stat Builder] XP'
   m_EditorClassIdentifier: 
   LevelMax: 100
-  XPMax: 100
+  XPMax: 5
