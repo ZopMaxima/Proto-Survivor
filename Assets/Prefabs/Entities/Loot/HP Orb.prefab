@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 4480204300821106376}
   - component: {fileID: -6715894797889108457}
   m_Layer: 12
-  m_Name: Loot - HP
+  m_Name: HP Orb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

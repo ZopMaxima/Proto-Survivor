@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 569772093235813328}
   - component: {fileID: 569772093235813333}
   - component: {fileID: 569772093235813322}
-  - component: {fileID: -4428520595342891563}
+  - component: {fileID: -9181820738253740999}
   m_Layer: 9
   m_Name: Enemy_Archer
   m_TagString: Untagged
@@ -160,7 +160,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &-4428520595342891563
+--- !u!114 &-9181820738253740999
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,10 +169,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 569772093235813323}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 608840613dc7e304da7ddf218ed5240b, type: 3}
+  m_Script: {fileID: 11500000, guid: 11363ac046b1ef34691a91aaa6e1db48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Loot: {fileID: 4480204300821106388, guid: c3c6121cb04f4374bb72109bbf1d71dd, type: 3}
+  Table: {fileID: 11400000, guid: 47d1139de5ae2204b8566598db9f6eff, type: 2}
 --- !u!1 &569772094124824112
 GameObject:
   m_ObjectHideFlags: 0
