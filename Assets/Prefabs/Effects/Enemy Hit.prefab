@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5769596601562691802}
   - component: {fileID: 589853870282507586}
   m_Layer: 17
-  m_Name: Effect - Enemy Hit
+  m_Name: Enemy Hit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
