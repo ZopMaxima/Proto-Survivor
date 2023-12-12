@@ -44,12 +44,12 @@ namespace Zop
 			if (newHP <= 0 && !_isDead)
 			{
 				_isDead = true;
-				_onDeath.Invoke(this, attack);
+				_onDeath?.Invoke(this, attack);
 			}
 			else if (newHP > 0 && _isDead)
 			{
 				_isDead = false;
-				_onRevive.Invoke(this, attack);
+				_onRevive?.Invoke(this, attack);
 			}
 		}
 
